@@ -1,6 +1,39 @@
 .header{
+    border-bottom: 1px solid #eaecf0;
+
+    .logo{
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        .icon_logo{
+            width: 25px;
+            height: 25px;
+            color: #FB8500;
+        }
+
+        a{
+            font-size: 20px;
+            font-weight: 500;
+            color: #023047;
+        }
+    }
+
     .sub_header{
+        height: 80px;
         display: flex;
         justify-content: space-between;
+        align-items: center;
+
+        .icon_user{
+            color: #023047;
+            width: 16px;
+            height: 16px;
+            padding: 10px;
+        }
+
+        .menu_admin{
+            display: flex;
+        }
     }
 }
