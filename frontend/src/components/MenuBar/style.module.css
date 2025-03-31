@@ -1,5 +1,5 @@
 .header{
-    border-bottom: 1px solid #eaecf0;
+    box-shadow: 0 0 2px 1px #eaecf0;
 
     .logo{
         display: flex;
@@ -13,8 +13,8 @@
         }
 
         a{
-            font-size: 20px;
-            font-weight: 500;
+            font-size: 30px;
+            font-weight: 600;
             color: #023047;
         }
     }
@@ -27,8 +27,8 @@
 
         .icon_user{
             color: #023047;
-            width: 16px;
-            height: 16px;
+            width: 20px;
+            height: 20px;
             padding: 10px;
         }
 

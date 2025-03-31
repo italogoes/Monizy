@@ -2,7 +2,7 @@ import './assets/styles/global.css'
 import { BrowserRouter, Routes, Route } from "react-router";
 import { createRoot } from 'react-dom/client'
 import MenuBar from "./components/MenuBar/MenuBar.tsx";
-import Dashboard from "./pages/Dashboard.tsx";
+import Dashboard from './pages/dashboard/index.tsx';
 
 createRoot(document.getElementById('root')!).render(
   <BrowserRouter>
