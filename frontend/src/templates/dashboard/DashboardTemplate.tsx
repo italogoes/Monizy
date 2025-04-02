@@ -40,7 +40,11 @@ const DashboardTemplate = () => {
           </NavLink>
         </div>
 
-        <div>
+        <div className={style.crats_boxies}>
+          <MiniChartBox>
+            <MonthlyExpenses/>
+          </MiniChartBox>
+
           <MiniChartBox>
             <MonthlyExpenses/>
           </MiniChartBox>

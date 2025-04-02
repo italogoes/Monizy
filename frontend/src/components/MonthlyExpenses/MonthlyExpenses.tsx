@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react"
 import * as echarts from 'echarts'
+import style from './style.module.css'
 
 const MonthlyExpenses = () => {
     const chartRef = useRef(null)
@@ -30,8 +31,8 @@ const MonthlyExpenses = () => {
     }, [])
 
     return (
-        <div>
-            <p>Despesas Mensal</p>
+        <div className={style.box}>
+            <p className={style.title}>Despesas Mensais</p>
             <div ref={chartRef} style={{ width: '100%', height: '500px'}}></div>
         </div>
     )

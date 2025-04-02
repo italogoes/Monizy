@@ -13,3 +13,9 @@
     display: flex;
     justify-content: space-between;
 }
+
+.crats_boxies{
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}

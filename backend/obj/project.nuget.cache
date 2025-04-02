@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "aKai9Vz4axw=",
+  "success": true,
+  "projectFilePath": "/Users/italogoes/Documents/monizy/Monizy/backend/monizy.csproj",
+  "expectedPackageFiles": [
+    "/Users/italogoes/.nuget/packages/microsoft.aspnetcore.openapi/9.0.1/microsoft.aspnetcore.openapi.9.0.1.nupkg.sha512",
+    "/Users/italogoes/.nuget/packages/microsoft.openapi/1.6.17/microsoft.openapi.1.6.17.nupkg.sha512"
+  ],
+  "logs": []
+}
