@@ -1,5 +1,3 @@
-"use client"
-
 import * as React from "react"
 import {
   ColumnDef,
@@ -13,19 +11,9 @@ import {
   getSortedRowModel,
   useReactTable,
 } from "@tanstack/react-table"
-import { ArrowUpDown, ChevronDown, MoreHorizontal } from "lucide-react"
+import { ArrowUpDown } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
-import {
-  DropdownMenu,
-  DropdownMenuCheckboxItem,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
-import { Input } from "@/components/ui/input"
 import {
   Table,
   TableBody,
@@ -34,6 +22,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table"
+import { CardTitle } from "./ui/card"
 
 const data: any[] = [
   {
@@ -41,21 +30,118 @@ const data: any[] = [
     transacao: "Aluguel",
     valor: 1.200,
     categoria: "Moradia",
-    data: Date.now()
+    data: "2025-04-10"
+  },
+  {
+    id: "1",
+    transacao: "Aluguel",
+    valor: 1.200,
+    categoria: "Moradia",
+    data: "2025-04-10"
+  },
+  {
+    id: "1",
+    transacao: "Aluguel",
+    valor: 1.200,
+    categoria: "Moradia",
+    data: "2025-04-10"
+  },
+  {
+    id: "1",
+    transacao: "Aluguel",
+    valor: 1.200,
+    categoria: "Moradia",
+    data: "2025-04-10"
+  },
+  {
+    id: "1",
+    transacao: "Aluguel",
+    valor: 1.200,
+    categoria: "Moradia",
+    data: "2025-04-10"
+  },
+  {
+    id: "1",
+    transacao: "Aluguel",
+    valor: 1.200,
+    categoria: "Moradia",
+    data: "2025-04-10"
+  },
+  {
+    id: "1",
+    transacao: "Aluguel",
+    valor: 1.200,
+    categoria: "Moradia",
+    data: "2025-04-10"
+  },
+  {
+    id: "1",
+    transacao: "Aluguel",
+    valor: 1.200,
+    categoria: "Moradia",
+    data: "2025-04-10"
+  },
+  {
+    id: "1",
+    transacao: "Aluguel",
+    valor: 1.200,
+    categoria: "Moradia",
+    data: "2025-04-10"
+  },
+  {
+    id: "1",
+    transacao: "Aluguel",
+    valor: 1.200,
+    categoria: "Moradia",
+    data: "2025-04-10"
+  },
+  {
+    id: "1",
+    transacao: "Aluguel",
+    valor: 1.200,
+    categoria: "Moradia",
+    data: "2025-04-10"
+  },
+  {
+    id: "1",
+    transacao: "Aluguel",
+    valor: 1.200,
+    categoria: "Moradia",
+    data: "2025-04-10"
   },
 ]
 
 export const columns: ColumnDef<any>[] = [
   {
     accessorKey: "transacao",
-    header: "Transação",
+    header: ({ column }) => {
+      return (
+        <Button
+          variant="ghost"
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+        >
+          Transação
+          <ArrowUpDown />
+        </Button>
+      )
+    },
     cell: ({ row }) => (
-      <div className="capitalize">{row.getValue("transacao")}</div>
+      <div className="px-4">{row.getValue("transacao")}</div>
     ),
   },
   {
     accessorKey: "valor",
-    header: () => <div className="text-right">Valor</div>,
+    header: ({ column }) => {
+      return (
+        <Button
+          variant="ghost"
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+        >
+          Valor
+          <ArrowUpDown />
+        </Button>
+      )
+    },
     cell: ({ row }) => {
       const amount = parseFloat(row.getValue("valor"))
 
@@ -65,7 +151,7 @@ export const columns: ColumnDef<any>[] = [
         currency: "USD",
       }).format(amount)
 
-      return <div className="text-right font-medium">{formatted}</div>
+      return <div>{formatted}</div>
     },
   },
   {
@@ -81,10 +167,27 @@ export const columns: ColumnDef<any>[] = [
         </Button>
       )
     },
-    cell: ({ row }) => <div className="lowercase">{row.getValue("categoria")}</div>,
+    cell: ({ row }) => {
+      return (
+        <div className="px-4">{row.getValue("categoria")}</div>
+      )
+    }
   },
-  
-  
+  {
+    accessorKey: "data",
+    header: ({ column }) => {
+      return (
+        <Button
+          variant="ghost"
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+        >
+          Data
+          <ArrowUpDown />
+        </Button>
+      )
+    },
+    cell: ({ row }) => <div>{row.getValue("data")}</div>,
+  },
 ]
 
 export function TransfersTable() {
@@ -118,42 +221,8 @@ export function TransfersTable() {
   return (
     <div className="w-full px-6">
       <div className="border px-6 rounded-md shadow-sm">
-        <div className="flex items-center py-4">
-            <Input
-            placeholder="Filter emails..."
-            value={(table.getColumn("email")?.getFilterValue() as string) ?? ""}
-            onChange={(event) =>
-                table.getColumn("email")?.setFilterValue(event.target.value)
-            }
-            className="max-w-sm"
-            />
-            <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-                <Button variant="outline" className="ml-auto">
-                Columns <ChevronDown />
-                </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="end">
-                {table
-                .getAllColumns()
-                .filter((column) => column.getCanHide())
-                .map((column) => {
-                    return (
-                    <DropdownMenuCheckboxItem
-                        key={column.id}
-                        className="capitalize"
-                        checked={column.getIsVisible()}
-                        onCheckedChange={(value) =>
-                        column.toggleVisibility(!!value)
-                        }
-                    >
-                        {column.id}
-                    </DropdownMenuCheckboxItem>
-                    )
-                })}
-            </DropdownMenuContent>
-            </DropdownMenu>
-        </div>
+        <CardTitle className="py-5">Historico de Transações</CardTitle>
+
         <div className="rounded-md border">
             <Table>
             <TableHeader>
@@ -180,6 +249,7 @@ export function TransfersTable() {
                     <TableRow
                     key={row.id}
                     data-state={row.getIsSelected() && "selected"}
+                    className="line-table-transfers"
                     >
                     {row.getVisibleCells().map((cell) => (
                         <TableCell key={cell.id}>
@@ -204,28 +274,26 @@ export function TransfersTable() {
             </TableBody>
             </Table>
         </div>
+
         <div className="flex items-center justify-end space-x-2 py-4">
-            <div className="flex-1 text-sm text-muted-foreground">
-            {table.getFilteredSelectedRowModel().rows.length} of{" "}
-            {table.getFilteredRowModel().rows.length} row(s) selected.
-            </div>
+            
             <div className="space-x-2">
-            <Button
-                variant="outline"
-                size="sm"
-                onClick={() => table.previousPage()}
-                disabled={!table.getCanPreviousPage()}
-            >
-                Previous
-            </Button>
-            <Button
-                variant="outline"
-                size="sm"
-                onClick={() => table.nextPage()}
-                disabled={!table.getCanNextPage()}
-            >
-                Next
-            </Button>
+              <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => table.previousPage()}
+                  disabled={!table.getCanPreviousPage()}
+              >
+                  Anterior
+              </Button>
+              <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => table.nextPage()}
+                  disabled={!table.getCanNextPage()}
+              >
+                  Próximo
+              </Button>
             </div>
         </div>
         </div>

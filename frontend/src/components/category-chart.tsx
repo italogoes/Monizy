@@ -1,13 +1,9 @@
-"use client"
 
-import { TrendingUp } from "lucide-react"
 import { LabelList, Pie, PieChart } from "recharts"
 
 import {
   Card,
   CardContent,
-  CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
@@ -23,29 +19,29 @@ const chartData = [
   { browser: "safari", visitors: 200, fill: "var(--color-safari)" },
   { browser: "firefox", visitors: 187, fill: "var(--color-firefox)" },
   { browser: "edge", visitors: 173, fill: "var(--color-edge)" },
-  { browser: "other", visitors: 908, fill: "var(--color-other)" },
+  { browser: "other", visitors: 408, fill: "var(--color-other)" },
 ]
 
 const chartConfig = {
   chrome: {
     label: "Chrome",
-    color: "red",
+    color: "oklch(70.4% 0.191 22.216)",
   },
   safari: {
     label: "Safari",
-    color: "blue",
+    color: "oklch(72.3% 0.219 149.579)",
   },
   firefox: {
     label: "Firefox",
-    color: "green",
+    color: "oklch(62.3% 0.214 259.815)",
   },
   edge: {
     label: "Edge",
-    color: "yellow",
+    color: "oklch(62.7% 0.265 303.9)",
   },
   other: {
     label: "Other",
-    color: "purple",
+    color: "oklch(76.9% 0.188 70.08)",
   },
 } satisfies ChartConfig
 
